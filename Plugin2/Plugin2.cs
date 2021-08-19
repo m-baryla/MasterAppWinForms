@@ -10,9 +10,9 @@ namespace Plugin2
             // TODO: Add constructor logic here
             //
         }
-		string myName = "Plugin1";
-        string myDescription = "A Simple Text Editor. Very Simple!";
-        string myAuthor = "Jon Dick";
+		string myName = "Plugin2";
+        string myDescription = "2222222222222222222222";
+        string myAuthor = "2222222222222222222222";
         string myVersion = "1.0.0";
         IPluginHost myHost = null;
         System.Windows.Forms.UserControl myMainInterface = new UserControl1();

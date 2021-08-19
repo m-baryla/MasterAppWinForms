@@ -54,10 +54,10 @@ namespace MasterAppWinForms
 
 
                     ////This part adds the plugin's info to the 'Plugin Information:' Frame
-                    //this.lblPluginName.Text = selectedPlugin.Instance.Name;
-                    //this.lblPluginVersion.Text = "(" + selectedPlugin.Instance.Version + ")";
-                    //this.lblPluginAuthor.Text = "By: " + selectedPlugin.Instance.Author;
-                    //this.lblPluginDesc.Text = selectedPlugin.Instance.Description;
+                    this.lblPluginName.Text = selectedPlugin.Instance.Name;
+                    this.lblPluginVersion.Text = "(" + selectedPlugin.Instance.Version + ")";
+                    this.lblPluginAuthor.Text = "By: " + selectedPlugin.Instance.Author;
+                    this.lblPluginDesc.Text = selectedPlugin.Instance.Description;
 
                     //Clear the current panel of any other plugin controls... 
                     //Note: this only affects visuals.. doesn't close the instance of the plugin
