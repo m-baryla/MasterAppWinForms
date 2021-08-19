@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MasterAppWinForms.Types;
+using MasterAppWinForms.HandlingPlugin;
 
 namespace MasterAppWinForms
 {
@@ -46,7 +39,7 @@ namespace MasterAppWinForms
             if (this.treeView1.SelectedNode != null)
             {
                 //Get the selected Plugin
-                Types.AvailablePlugin selectedPlugin = Global.Plugins.AvailablePlugins.Find(treeView1.SelectedNode.Text.ToString());
+                AvailablePlugin selectedPlugin = Global.Plugins.AvailablePlugins.Find(treeView1.SelectedNode.Text.ToString());
 
                 if (selectedPlugin != null)
                 {
