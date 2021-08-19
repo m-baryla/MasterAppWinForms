@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace PluginInterface
 {
@@ -13,10 +17,5 @@ namespace PluginInterface
         System.Windows.Forms.UserControl MainInterface { get; }
         void Initialize();
         void Dispose();
-    }
-
-    public interface IPluginHost
-    {
-        void Feedback(string Feedback, IPlugin Plugin);
     }
 }

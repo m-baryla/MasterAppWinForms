@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using MasterAppWinForms.HandlingPlugin;
 
-namespace MasterAppWinForms
+namespace MasterAppWinForms.Forms
 {
     public partial class MainForm : Form
     {
@@ -10,6 +11,7 @@ namespace MasterAppWinForms
         {
             InitializeComponent();
             Application.EnableVisualStyles();
+
 
         }
         [STAThread]
@@ -24,7 +26,7 @@ namespace MasterAppWinForms
             Global.Plugins.FindPlugins(Application.StartupPath + @"\Plugins");
 
             //Add each plugin to the treeview
-            foreach (AvailablePlugin pluginOn in Global.Plugins.AvailablePlugins)
+            foreach (M_AvailablePlugin pluginOn in Global.Plugins.AvailablePlugins)
             {
                 TreeNode newNode = new TreeNode(pluginOn.Instance.Name);
                 this.treeView1.Nodes.Add(newNode);
@@ -39,7 +41,7 @@ namespace MasterAppWinForms
             if (this.treeView1.SelectedNode != null)
             {
                 //Get the selected Plugin
-                AvailablePlugin selectedPlugin = Global.Plugins.AvailablePlugins.Find(treeView1.SelectedNode.Text.ToString());
+                M_AvailablePlugin selectedPlugin = Global.Plugins.AvailablePlugins.Find(treeView1.SelectedNode.Text.ToString());
 
                 if (selectedPlugin != null)
                 {

@@ -31,5 +31,10 @@ namespace Plugin3
             get { return myPlugin; }
             set { myPlugin = value; }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            myHost.Feedback(this.comboBox1.Text, myPlugin);
+        }
     }
 }

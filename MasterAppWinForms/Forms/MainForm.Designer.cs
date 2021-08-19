@@ -1,5 +1,5 @@
 ﻿
-namespace MasterAppWinForms
+namespace MasterAppWinForms.Forms
 {
     partial class MainForm
     {
@@ -36,6 +36,7 @@ namespace MasterAppWinForms
             this.lblPluginAuthor = new System.Windows.Forms.Label();
             this.lblPluginVersion = new System.Windows.Forms.Label();
             this.lblPluginName = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,11 +112,20 @@ namespace MasterAppWinForms
             this.lblPluginName.TabIndex = 0;
             this.lblPluginName.Text = "<Plugin Name Here>";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(41, 28);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(164, 21);
+            this.comboBox1.TabIndex = 3;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.panel1);
@@ -136,5 +146,6 @@ namespace MasterAppWinForms
         private System.Windows.Forms.Label lblPluginAuthor;
         private System.Windows.Forms.Label lblPluginVersion;
         private System.Windows.Forms.Label lblPluginName;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

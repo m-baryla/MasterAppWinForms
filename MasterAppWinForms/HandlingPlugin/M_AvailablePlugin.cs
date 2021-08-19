@@ -2,11 +2,8 @@
 
 namespace MasterAppWinForms.HandlingPlugin
 {
-	public class AvailablePlugin
+	public class M_AvailablePlugin
     {
-        //This is the actual AvailablePlugin object.. 
-        //Holds an instance of the plugin to access
-        //ALso holds assembly path... not really necessary
         private IPlugin myInstance = null;
         private string myAssemblyPath = "";
 
