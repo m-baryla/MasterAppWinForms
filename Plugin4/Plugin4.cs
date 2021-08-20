@@ -1,27 +1,28 @@
-﻿using System.Drawing;
+﻿using PluginInterface;
+using System.Drawing;
 using System.Windows.Forms;
-using PluginInterface;
 
-namespace Plugin2
+namespace Plugin4
 {
-    public class Plugin2 : IPlugin
+    public class Plugin4 : IPlugin
     {
-        public Plugin2()
+        public Plugin4()
         {
             //
             // TODO: Add constructor logic here
             //
         }
-		string myName = "Plugin2";
-        string myDescription = "2222222222222222222222";
-        string myAuthor = "2222222222222222222222";
+        string myName = "Plugin4";
+        string myDescription = "4444444444444444444";
+        string myAuthor = "44444444444444";
         string myVersion = "1.0.0";
         IPluginHost myHost = null;
         UserControl myMainInterface = new UserControl1();
-        string myTreeName = "1";
-        int myTreeSubNumber = 0;
+        string myTreeName = "";
+        int myTreeSubNumber = 1;
         ImageList imageList;
-        string myIconImageName = "2";
+        string myIconImageName = "4";
+
 
         public IPluginHost Host
         {
@@ -37,7 +38,7 @@ namespace Plugin2
                 mainCtl.Plugin = this;
             }
         }
-		public string Description
+        public string Description
         {
             get { return myDescription; }
         }
@@ -47,20 +48,20 @@ namespace Plugin2
             get { return myAuthor; }
 
         }
-		public string Name
-		{
-			get { return myName; }
-		}
+        public string Name
+        {
+            get { return myName; }
+        }
 
-		public UserControl MainInterface
-		{
-			get { return myMainInterface; }
-		}
+        public UserControl MainInterface
+        {
+            get { return myMainInterface; }
+        }
 
-		public string Version
-		{
-			get { return myVersion; }
-		}
+        public string Version
+        {
+            get { return myVersion; }
+        }
         public string TreeName
         {
             get { return myTreeName; }
@@ -70,6 +71,7 @@ namespace Plugin2
         {
             get { return myTreeSubNumber; }
         }
+
         public ImageList IconImage
         {
             get
@@ -77,8 +79,8 @@ namespace Plugin2
                 if (imageList == null)
                 {
                     imageList = new ImageList();
-                    //imageList.Images.Add("Application", Image.FromFile(@"D:\Source\_MySource\MasterAppWinForms\MasterApp\MasterAppWinForms\Plugin2\bin\Debug\2.jpg"));
-                    imageList.Images.Add("2", Image.FromFile(Application.StartupPath + @"\Icons\" + IconImageName + ".jpg"));
+                    //imageList.Images.Add("Application", Image.FromFile(@"D:\Source\_MySource\MasterAppWinForms\MasterApp\MasterAppWinForms\Plugin4\bin\Debug\4.jpg"));
+                    imageList.Images.Add("4", Image.FromFile(Application.StartupPath + @"\Icons\" + IconImageName + ".jpg"));
                 }
                 return imageList;
             }
@@ -87,12 +89,13 @@ namespace Plugin2
         {
             get { return myIconImageName; }
         }
-        public void Initialize()
-		{
-		}
 
-		public void Dispose()
-		{
-		}
-	}
+        public void Initialize()
+        {
+        }
+
+        public void Dispose()
+        {
+        }
+    }
 }

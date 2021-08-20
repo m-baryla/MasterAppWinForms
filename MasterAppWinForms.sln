@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginInterface", "PluginIn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin3", "Plugin3\Plugin3.csproj", "{06A41D96-984A-4CE0-8CA1-21D1A2853DA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin1", "Plugin1\Plugin1.csproj", "{2C241D95-701C-4175-A21A-D23DF2F260FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin4", "Plugin4\Plugin4.csproj", "{B6C2513D-007C-4B3A-AC77-1F96AD0D1865}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{06A41D96-984A-4CE0-8CA1-21D1A2853DA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06A41D96-984A-4CE0-8CA1-21D1A2853DA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06A41D96-984A-4CE0-8CA1-21D1A2853DA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C241D95-701C-4175-A21A-D23DF2F260FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C241D95-701C-4175-A21A-D23DF2F260FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C241D95-701C-4175-A21A-D23DF2F260FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C241D95-701C-4175-A21A-D23DF2F260FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6C2513D-007C-4B3A-AC77-1F96AD0D1865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6C2513D-007C-4B3A-AC77-1F96AD0D1865}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6C2513D-007C-4B3A-AC77-1F96AD0D1865}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6C2513D-007C-4B3A-AC77-1F96AD0D1865}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

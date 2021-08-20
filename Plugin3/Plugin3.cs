@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
+using System.Windows.Forms;
 using PluginInterface;
 
 namespace Plugin3
@@ -20,7 +17,11 @@ namespace Plugin3
         string myAuthor = "333333333333333333333";
         string myVersion = "1.0.0";
         IPluginHost myHost = null;
-        System.Windows.Forms.UserControl myMainInterface = new UserControl1();
+        UserControl myMainInterface = new UserControl1();
+        string myTreeName = "";
+        int myTreeSubNumber = 0;
+        ImageList imageList;
+        string myIconImageName = "3";
 
         public IPluginHost Host
         {
@@ -51,7 +52,7 @@ namespace Plugin3
             get { return myName; }
         }
 
-        public System.Windows.Forms.UserControl MainInterface
+        public UserControl MainInterface
         {
             get { return myMainInterface; }
         }
@@ -61,6 +62,32 @@ namespace Plugin3
             get { return myVersion; }
         }
 
+        public string TreeName
+        {
+            get { return myTreeName; }
+        }
+
+        public int TreeSubNumber
+        {
+            get { return myTreeSubNumber; }
+        }
+        public ImageList IconImage
+        {
+            get
+            {
+                if (imageList == null)
+                {
+                    imageList = new ImageList();
+                    //imageList.Images.Add("Application", Image.FromFile(@"D:\Source\_MySource\MasterAppWinForms\MasterApp\MasterAppWinForms\Plugin3\bin\Debug\3.jpg"));
+                    imageList.Images.Add("3", Image.FromFile(Application.StartupPath + @"\Icons\" + IconImageName + ".jpg"));
+                }
+                return imageList;
+            }
+        }
+        public string IconImageName
+        {
+            get { return myIconImageName; }
+        }
         public void Initialize()
         {
         }
