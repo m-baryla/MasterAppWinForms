@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MasterAppWinForms.HandlingPlugin
+namespace PluginInterface
 {
     public class VM_AvailablePlugins : System.Collections.CollectionBase
     {

@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using MasterAppWinForms.HandlingPlugin;
+using PluginInterface;
 
 namespace MasterAppWinForms.Forms
 {
@@ -19,9 +20,11 @@ namespace MasterAppWinForms.Forms
             Application.Run(new MainForm());
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private  void MainForm_Load(object sender, EventArgs e)
         {
             Global.Plugins.FindPlugins(Application.StartupPath + @"\Plugins");
+
+            ImageList imageList = new ImageList();
 
             foreach (M_AvailablePlugin pluginOn in Global.Plugins.AvailablePlugins)
             {
@@ -30,16 +33,19 @@ namespace MasterAppWinForms.Forms
                 if (pluginOn.Instance.TreeName == "0" || pluginOn.Instance.TreeName == "1")
                 {
                     this.treeView1.Nodes.Add(newNode);
-                    this.treeView1.ImageList = pluginOn.Instance.IconImage;
-                    this.treeView1.ImageKey = pluginOn.Instance.IconImageName;
-                    this.treeView1.SelectedImageKey = pluginOn.Instance.IconImageName;
+
+                    if (!string.IsNullOrEmpty(pluginOn.Instance.Icon))
+                    {
+                        imageList.Images.Add(Image.FromFile(pluginOn.Instance.Icon + ".jpg"));
+                    }
+                    
+                    this.treeView1.ImageList = imageList;
                 }
                 else
                 {
                     this.treeView1.Nodes[pluginOn.Instance.TreeSubNumber].Nodes.Add(newNode);
-                    this.treeView1.ImageList = pluginOn.Instance.IconImage;
-                    this.treeView1.ImageKey = pluginOn.Instance.IconImageName;
-                    this.treeView1.SelectedImageKey = pluginOn.Instance.IconImageName;
+
+                   
                 }
                 newNode = null;
             }

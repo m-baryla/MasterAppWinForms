@@ -1,4 +1,6 @@
-﻿namespace MasterAppWinForms.HandlingPlugin
+﻿using PluginInterface;
+
+namespace MasterAppWinForms.HandlingPlugin
 {
     public class Global
     {

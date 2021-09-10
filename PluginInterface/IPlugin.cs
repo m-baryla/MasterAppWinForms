@@ -10,16 +10,14 @@ namespace PluginInterface
 {
     public interface IPlugin
     {
-        IPluginHost Host { get; set; }
         string Name { get; }
         string Description { get; }
         string Author { get; }
         string Version { get; }
         string TreeName { get; }
         int TreeSubNumber { get; }
-        ImageList IconImage { get; }
-        string IconImageName { get; }
         UserControl MainInterface { get; }
+        string Icon { get; }
         void Initialize();
         void Dispose();
     }

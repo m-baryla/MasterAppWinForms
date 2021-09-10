@@ -1,6 +1,6 @@
 ﻿using PluginInterface;
 
-namespace MasterAppWinForms.HandlingPlugin
+namespace PluginInterface
 {
 	public class M_AvailablePlugin
     {

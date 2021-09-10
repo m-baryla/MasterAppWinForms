@@ -52,8 +52,6 @@
     <Compile Include="Forms\FeedBackExample.Designer.cs">
       <DependentUpon>FeedBackExample.cs</DependentUpon>
     </Compile>
-    <Compile Include="HandlingPlugin\M_AvailablePlugin.cs" />
-    <Compile Include="HandlingPlugin\VM_AvailablePlugins.cs" />
     <Compile Include="HandlingPlugin\Global.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -61,7 +59,6 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HandlingPlugin\PluginServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\FeedBackExample.resx">
       <DependentUpon>FeedBackExample.cs</DependentUpon>

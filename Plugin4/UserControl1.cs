@@ -17,14 +17,9 @@ namespace Plugin4
         {
             InitializeComponent();
         }
-        IPluginHost myHost = null;
+
         IPlugin myPlugin = null;
 
-        public IPluginHost PluginHost
-        {
-            get { return myHost; }
-            set { myHost = value; }
-        }
         public IPlugin Plugin
         {
             get { return myPlugin; }
@@ -34,7 +29,6 @@ namespace Plugin4
         private void UserControl1_Paint(object sender, PaintEventArgs e)
         {
             CustomPaintBackgound.PanelBackgruondPanit(this, e, System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal);
-
         }
     }
 }

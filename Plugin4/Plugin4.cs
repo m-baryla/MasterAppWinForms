@@ -16,28 +16,12 @@ namespace Plugin4
         string myDescription = "4444444444444444444";
         string myAuthor = "44444444444444";
         string myVersion = "1.0.0";
-        IPluginHost myHost = null;
         UserControl myMainInterface = new UserControl1();
         string myTreeName = "";
         int myTreeSubNumber = 1;
-        ImageList imageList;
-        string myIconImageName = "4";
 
 
-        public IPluginHost Host
-        {
-            get
-            {
-                return myHost;
-            }
-            set
-            {
-                myHost = value;
-                UserControl1 mainCtl = (UserControl1)myMainInterface;
-                mainCtl.PluginHost = this.Host;
-                mainCtl.Plugin = this;
-            }
-        }
+       
         public string Description
         {
             get { return myDescription; }
@@ -72,22 +56,9 @@ namespace Plugin4
             get { return myTreeSubNumber; }
         }
 
-        public ImageList IconImage
+        public string Icon
         {
-            get
-            {
-                if (imageList == null)
-                {
-                    imageList = new ImageList();
-                    //imageList.Images.Add("Application", Image.FromFile(@"D:\Source\_MySource\MasterAppWinForms\MasterApp\MasterAppWinForms\Plugin4\bin\Debug\4.jpg"));
-                    imageList.Images.Add("4", Image.FromFile(Application.StartupPath + @"\Icons\" + IconImageName + ".jpg"));
-                }
-                return imageList;
-            }
-        }
-        public string IconImageName
-        {
-            get { return myIconImageName; }
+            get { return Application.StartupPath + @"\Icons\" + Name; }
         }
 
         public void Initialize()

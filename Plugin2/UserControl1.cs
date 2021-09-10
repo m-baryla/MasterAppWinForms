@@ -18,14 +18,9 @@ namespace Plugin2
             InitializeComponent();
         }
 
-        IPluginHost myHost = null;
         IPlugin myPlugin = null;
 
-        public IPluginHost PluginHost
-        {
-            get { return myHost; }
-            set { myHost = value; }
-        }
+       
         public IPlugin Plugin
         {
             get { return myPlugin; }
@@ -34,7 +29,6 @@ namespace Plugin2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            myHost.Feedback(this.txtFeedback.Text, myPlugin);
         }
     }
 }

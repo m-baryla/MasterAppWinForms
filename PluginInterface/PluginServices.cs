@@ -1,12 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
-using MasterAppWinForms.Forms;
-using PluginInterface;
+using System.Windows.Forms;
 
-namespace MasterAppWinForms.HandlingPlugin
+namespace PluginInterface
 {
-	public class PluginServices : IPluginHost   
+    public class PluginServices 
 	{
 		
 		public PluginServices()
@@ -21,10 +20,6 @@ namespace MasterAppWinForms.HandlingPlugin
 			set { colAvailablePlugins = value; }
 		}
 
-		public void FindPlugins()
-		{
-			FindPlugins(AppDomain.CurrentDomain.BaseDirectory);
-		}
 		
 		public void FindPlugins(string Path)
 		{
@@ -41,7 +36,7 @@ namespace MasterAppWinForms.HandlingPlugin
 			}
 		}
 
-		public void ClosePlugins()
+        public void ClosePlugins()
 		{
 			foreach (M_AvailablePlugin pluginOn in colAvailablePlugins)
 			{
@@ -73,8 +68,6 @@ namespace MasterAppWinForms.HandlingPlugin
 
 							newPlugin.Instance = (IPlugin)Activator.CreateInstance(pluginAssembly.GetType(pluginType.ToString()));
 
-							newPlugin.Instance.Host = this;
-
 							newPlugin.Instance.Initialize();
 
 							this.colAvailablePlugins.Add(newPlugin);
@@ -90,23 +83,5 @@ namespace MasterAppWinForms.HandlingPlugin
 			pluginAssembly = null;
 		}
 
-		
-		public void Feedback(string Feedback, IPlugin Plugin)
-		{
-            System.Windows.Forms.Form newForm = null;
-            FeedBackExample newFeedbackForm = new FeedBackExample();
-            
-            newFeedbackForm.PluginAuthor = "By: " + Plugin.Author;
-            newFeedbackForm.PluginDesc = Plugin.Description;
-            newFeedbackForm.PluginName = Plugin.Name;
-            newFeedbackForm.PluginVersion = Plugin.Version;
-            newFeedbackForm.Feedback = Feedback;
-
-            newForm = newFeedbackForm;
-            newForm.ShowDialog();
-
-            newFeedbackForm = null;
-            newForm = null;
-        }
-	}
+    }
 }

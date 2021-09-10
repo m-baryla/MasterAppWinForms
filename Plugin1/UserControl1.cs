@@ -10,14 +10,9 @@ namespace Plugin1
         {
             InitializeComponent();
         }
-        IPluginHost myHost = null;
+
         IPlugin myPlugin = null;
 
-        public IPluginHost PluginHost
-        {
-            get { return myHost; }
-            set { myHost = value; }
-        }
         public IPlugin Plugin
         {
             get { return myPlugin; }
