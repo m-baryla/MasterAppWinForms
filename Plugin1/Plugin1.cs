@@ -17,52 +17,36 @@ namespace Plugin1
         string myAuthor = "1111111111111";
         string myVersion = "1.0.0";
         UserControl myMainInterface = new UserControl1();
-        string myTreeName = "0";
-        int myTreeSubNumber = 0;
+        int? myTreeSubNumber = null;
 
 
         public string Description
         {
             get { return myDescription; }
         }
-
         public string Author
         {
             get { return myAuthor; }
-
         }
         public string Name
         {
             get { return myName; }
         }
-
         public UserControl MainInterface
         {
             get { return myMainInterface; }
         }
-
         public string Version
         {
             get { return myVersion; }
         }
-        public string TreeName
-        {
-            get { return myTreeName; }
-        }
-
         public int TreeSubNumber
         {
-            get { return myTreeSubNumber; }
-        }
-
-        public string Icon
-        {
-            get { return Application.StartupPath + @"\Icons\" + Name; }
+            get { return (int)myTreeSubNumber; }
         }
         public void Initialize()
         {
         }
-
         public void Dispose()
         {
         }

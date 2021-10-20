@@ -14,10 +14,8 @@ namespace PluginInterface
         string Description { get; }
         string Author { get; }
         string Version { get; }
-        string TreeName { get; }
         int TreeSubNumber { get; }
         UserControl MainInterface { get; }
-        string Icon { get; }
         void Initialize();
         void Dispose();
     }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
@@ -7,8 +9,7 @@ namespace PluginInterface
 {
     public class PluginServices 
 	{
-		
-		public PluginServices()
+        public PluginServices()
 		{
 		}
 
@@ -20,8 +21,9 @@ namespace PluginInterface
 			set { colAvailablePlugins = value; }
 		}
 
-		
-		public void FindPlugins(string Path)
+        public Dictionary<int, string> DictImage = new Dictionary<int, string>(); 
+
+        public void FindPlugins(string Path)
 		{
 			colAvailablePlugins.Clear();
 
@@ -35,6 +37,24 @@ namespace PluginInterface
 				}
 			}
 		}
+
+        public ImageList FindIco(string Path)
+        {
+            ImageList imageList = new ImageList();
+            int i = 0;
+			foreach (string fileOn in Directory.GetFiles(Path))
+            {
+                FileInfo file = new FileInfo(fileOn);
+
+                if (file.Extension.Equals(".jpg"))
+                {
+                    imageList.Images.Add(Image.FromFile(fileOn));
+                    DictImage.Add(i, file.Name);
+                    i++;
+				}
+            }
+			return imageList;
+        }
 
         public void ClosePlugins()
 		{

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using MasterAppWinForms.HandlingPlugin;
 using PluginInterface;
@@ -23,36 +25,74 @@ namespace MasterAppWinForms.Forms
         private  void MainForm_Load(object sender, EventArgs e)
         {
             Global.Plugins.FindPlugins(Application.StartupPath + @"\Plugins");
-
-            ImageList imageList = new ImageList();
+            var img = Global.Plugins.FindIco(Application.StartupPath + @"\Icons");
+            var imgKey = Global.Plugins.DictImage;
 
             foreach (M_AvailablePlugin pluginOn in Global.Plugins.AvailablePlugins)
             {
                 TreeNode newNode = new TreeNode(pluginOn.Instance.Name);
 
-                if (pluginOn.Instance.TreeName == "0" || pluginOn.Instance.TreeName == "1")
-                {
-                    this.treeView1.Nodes.Add(newNode);
+                var indexSelect = imgKey.Where(o => o.Value == "Pick" + ".jpg").Select(x => x.Key).SingleOrDefault();
 
-                    if (!string.IsNullOrEmpty(pluginOn.Instance.Icon))
-                    {
-                        imageList.Images.Add(Image.FromFile(pluginOn.Instance.Icon + ".jpg"));
-                    }
-                    
-                    this.treeView1.ImageList = imageList;
+                // main tree
+                if (pluginOn.Instance.Name == "Plugin1")
+                {
+                    var index = imgKey.Where(o => o.Value == pluginOn.Instance.Name + ".jpg").Select(x => x.Key).SingleOrDefault();
+                    this.treeView1.Nodes.Add(pluginOn.Instance.Name, newNode.Text, index, indexSelect);
                 }
+                else if (pluginOn.Instance.Name == "Plugin2")
+                {
+                    var index = imgKey.Where(o => o.Value == pluginOn.Instance.Name + ".jpg").Select(x => x.Key).SingleOrDefault();
+                    this.treeView1.Nodes.Add(pluginOn.Instance.Name, newNode.Text, index, indexSelect);
+                }
+                // sub-main tree
                 else
                 {
-                    this.treeView1.Nodes[pluginOn.Instance.TreeSubNumber].Nodes.Add(newNode);
-
-                   
+                    if (pluginOn.Instance.Name == "Plugin3")
+                    {
+                        var index = imgKey.Where(o => o.Value == pluginOn.Instance.Name + ".jpg").Select(x => x.Key).SingleOrDefault();
+                        this.treeView1.Nodes[pluginOn.Instance.TreeSubNumber].Nodes.Add(pluginOn.Instance.Name, newNode.Text, index, indexSelect);
+                    }
+                    else if (pluginOn.Instance.Name == "Plugin4")
+                    {
+                        var index = imgKey.Where(o => o.Value == pluginOn.Instance.Name + ".jpg").Select(x => x.Key).SingleOrDefault();
+                        this.treeView1.Nodes[pluginOn.Instance.TreeSubNumber].Nodes.Add(pluginOn.Instance.Name, newNode.Text, index, indexSelect);
+                    }
                 }
                 newNode = null;
             }
+
+            this.treeView1.ImageList = img;
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
+
+            //TreeNode sectedNode = treeView1.SelectedNode;
+            //switch (sectedNode.Text)
+            //{
+            //    case "Plugin1":
+            //        {
+            //            MessageBox.Show("Plugin1");
+            //        }
+            //        break;
+            //    case "Plugin2":
+            //        {
+            //            MessageBox.Show("Plugin1");
+            //        }
+            //        break;
+            //    case "Plugin3":
+            //        {
+            //            MessageBox.Show("Plugin1");
+            //        }
+            //        break;
+            //    case "Plugin4":
+            //        {
+            //            MessageBox.Show("Plugin1");
+            //        }
+            //        break;
+            //}
+
             if (this.treeView1.SelectedNode != null)
             {
                 M_AvailablePlugin selectedPlugin = Global.Plugins.AvailablePlugins.Find(treeView1.SelectedNode.Text.ToString());
