@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigElements\PluginCollection.cs" />
+    <Compile Include="ConfigElements\PluginConfigSection.cs" />
+    <Compile Include="ConfigElements\PluginElement.cs" />
     <Compile Include="HandlingPlugin\Global.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>

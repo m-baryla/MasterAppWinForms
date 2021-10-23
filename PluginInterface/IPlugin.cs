@@ -15,6 +15,7 @@ namespace PluginInterface
         string Author { get; }
         string Version { get; }
         int TreeSubNumber { get; }
+        bool IsSubTree { get; }
         UserControl MainInterface { get; }
         void Initialize();
         void Dispose();

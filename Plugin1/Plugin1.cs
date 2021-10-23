@@ -12,14 +12,19 @@ namespace Plugin1
             // TODO: Add constructor logic here
             //
         }
-        string myName = "Plugin1";
-        string myDescription = "11111111111111111111111";
-        string myAuthor = "1111111111111";
-        string myVersion = "1.0.0";
-        UserControl myMainInterface = new UserControl1();
-        int? myTreeSubNumber = null;
+        private string myName = "Plugin1";
+        private string myDescription = "Aplikacja do niczego konkretnego....";
+        private string myAuthor = "Mateusz Baryla";
+        private string myVersion = "1.0.0";
+        private UserControl myMainInterface = new UserControl1();
+        private int? myTreeSubNumber = null;
+        private bool myIsSubTree = false;
 
 
+        public bool IsSubTree
+        {
+            get { return myIsSubTree; }
+        }
         public string Description
         {
             get { return myDescription; }

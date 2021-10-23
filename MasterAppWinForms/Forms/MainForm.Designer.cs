@@ -29,127 +29,102 @@ namespace MasterAppWinForms.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblPluginInfo = new System.Windows.Forms.Label();
+            this.mainTreeView = new System.Windows.Forms.TreeView();
+            this.groupBoxPluginInfo = new System.Windows.Forms.GroupBox();
+            this.lblPluginInfoAuthor = new System.Windows.Forms.Label();
             this.lblPluginDesc = new System.Windows.Forms.Label();
-            this.lblPluginAuthor = new System.Windows.Forms.Label();
-            this.lblPluginVersion = new System.Windows.Forms.Label();
-            this.lblPluginName = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.showPanel = new System.Windows.Forms.Panel();
+            this.groupBoxPluginInfo.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // lblPluginInfo
             // 
-            this.panel1.Location = new System.Drawing.Point(233, 40);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1018, 420);
-            this.panel1.TabIndex = 0;
+            this.lblPluginInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblPluginInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPluginInfo.Location = new System.Drawing.Point(6, 19);
+            this.lblPluginInfo.Name = "lblPluginInfo";
+            this.lblPluginInfo.Size = new System.Drawing.Size(178, 18);
+            this.lblPluginInfo.TabIndex = 3;
+            this.lblPluginInfo.Text = "(<PluginName>)(<Version>)";
             // 
-            // treeView1
+            // mainTreeView
             // 
-            this.treeView1.ItemHeight = 36;
-            this.treeView1.Location = new System.Drawing.Point(12, 40);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.treeView1.Size = new System.Drawing.Size(201, 610);
-            this.treeView1.TabIndex = 1;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            this.mainTreeView.Dock = System.Windows.Forms.DockStyle.Left;
+            this.mainTreeView.ItemHeight = 36;
+            this.mainTreeView.Location = new System.Drawing.Point(0, 0);
+            this.mainTreeView.Name = "mainTreeView";
+            this.mainTreeView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.mainTreeView.Size = new System.Drawing.Size(201, 784);
+            this.mainTreeView.TabIndex = 1;
+            this.mainTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.mainTreeView_AfterSelect);
             // 
-            // groupBox1
+            // groupBoxPluginInfo
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.Controls.Add(this.lblPluginDesc);
-            this.groupBox1.Controls.Add(this.lblPluginAuthor);
-            this.groupBox1.Controls.Add(this.lblPluginVersion);
-            this.groupBox1.Controls.Add(this.lblPluginName);
-            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox1.Location = new System.Drawing.Point(12, 656);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1244, 126);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Plugin Information:";
+            this.groupBoxPluginInfo.Controls.Add(this.lblPluginInfoAuthor);
+            this.groupBoxPluginInfo.Controls.Add(this.lblPluginInfo);
+            this.groupBoxPluginInfo.Controls.Add(this.lblPluginDesc);
+            this.groupBoxPluginInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBoxPluginInfo.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.groupBoxPluginInfo.Location = new System.Drawing.Point(201, 717);
+            this.groupBoxPluginInfo.Name = "groupBoxPluginInfo";
+            this.groupBoxPluginInfo.Size = new System.Drawing.Size(1062, 67);
+            this.groupBoxPluginInfo.TabIndex = 2;
+            this.groupBoxPluginInfo.TabStop = false;
+            this.groupBoxPluginInfo.Text = "Plugin Information:";
+            // 
+            // lblPluginInfoAuthor
+            // 
+            this.lblPluginInfoAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPluginInfoAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPluginInfoAuthor.Location = new System.Drawing.Point(707, 37);
+            this.lblPluginInfoAuthor.Name = "lblPluginInfoAuthor";
+            this.lblPluginInfoAuthor.Size = new System.Drawing.Size(343, 21);
+            this.lblPluginInfoAuthor.TabIndex = 4;
+            this.lblPluginInfoAuthor.Text = "(<Author>)";
             // 
             // lblPluginDesc
             // 
-            this.lblPluginDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPluginDesc.Location = new System.Drawing.Point(6, 68);
+            this.lblPluginDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblPluginDesc.Location = new System.Drawing.Point(7, 37);
             this.lblPluginDesc.Name = "lblPluginDesc";
-            this.lblPluginDesc.Size = new System.Drawing.Size(1228, 16);
-            this.lblPluginDesc.TabIndex = 3;
-            this.lblPluginDesc.Text = "   Plugin Description Goes Here... Test One Two Three, This is a Test...";
+            this.lblPluginDesc.Size = new System.Drawing.Size(746, 25);
+            this.lblPluginDesc.TabIndex = 0;
+            this.lblPluginDesc.Text = "Plugin Description Goes Here... Test One Two Three, This is a Test...";
             // 
-            // lblPluginAuthor
+            // showPanel
             // 
-            this.lblPluginAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPluginAuthor.Location = new System.Drawing.Point(14, 52);
-            this.lblPluginAuthor.Name = "lblPluginAuthor";
-            this.lblPluginAuthor.Size = new System.Drawing.Size(1228, 16);
-            this.lblPluginAuthor.TabIndex = 2;
-            this.lblPluginAuthor.Text = "By: <Author\'s Name>";
-            // 
-            // lblPluginVersion
-            // 
-            this.lblPluginVersion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPluginVersion.Location = new System.Drawing.Point(14, 36);
-            this.lblPluginVersion.Name = "lblPluginVersion";
-            this.lblPluginVersion.Size = new System.Drawing.Size(1228, 16);
-            this.lblPluginVersion.TabIndex = 1;
-            this.lblPluginVersion.Text = "(<Version>)";
-            // 
-            // lblPluginName
-            // 
-            this.lblPluginName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPluginName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPluginName.Location = new System.Drawing.Point(8, 20);
-            this.lblPluginName.Name = "lblPluginName";
-            this.lblPluginName.Size = new System.Drawing.Size(1228, 16);
-            this.lblPluginName.TabIndex = 0;
-            this.lblPluginName.Text = "<Plugin Name Here>";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(705, 627);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "CLOSE";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.showPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.showPanel.Location = new System.Drawing.Point(201, 0);
+            this.showPanel.Name = "showPanel";
+            this.showPanel.Size = new System.Drawing.Size(1062, 717);
+            this.showPanel.TabIndex = 3;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1263, 784);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.treeView1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.showPanel);
+            this.Controls.Add(this.groupBoxPluginInfo);
+            this.Controls.Add(this.mainTreeView);
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.groupBox1.ResumeLayout(false);
+            this.groupBoxPluginInfo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TreeView mainTreeView;
+        private System.Windows.Forms.GroupBox groupBoxPluginInfo;
         private System.Windows.Forms.Label lblPluginDesc;
-        private System.Windows.Forms.Label lblPluginAuthor;
-        private System.Windows.Forms.Label lblPluginVersion;
-        private System.Windows.Forms.Label lblPluginName;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblPluginInfo;
+        private System.Windows.Forms.Label lblPluginInfoAuthor;
+        private System.Windows.Forms.Panel showPanel;
     }
 }
