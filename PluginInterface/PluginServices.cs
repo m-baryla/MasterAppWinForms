@@ -9,19 +9,16 @@ namespace PluginInterface
 {
     public class PluginServices 
 	{
-        public PluginServices()
-		{
-		}
+        public PluginServices() {}
 
-		private VM_AvailablePlugins colAvailablePlugins = new VM_AvailablePlugins();
+		private AvailablePlugins colAvailablePlugins = new AvailablePlugins();
+        public Dictionary<int, string> Icons = new Dictionary<int, string>(); 
 
-		public VM_AvailablePlugins AvailablePlugins
+		public AvailablePlugins AvailablePlugins
 		{
 			get { return colAvailablePlugins; }
 			set { colAvailablePlugins = value; }
 		}
-
-        public Dictionary<int, string> DictImage = new Dictionary<int, string>(); 
 
         public void FindPlugins(string Path)
 		{
@@ -38,7 +35,7 @@ namespace PluginInterface
 			}
 		}
 
-        public ImageList FindIco(string Path)
+        public ImageList FindIcons(string Path)
         {
             ImageList imageList = new ImageList();
             int i = 0;
@@ -49,7 +46,7 @@ namespace PluginInterface
                 if (file.Extension.Equals(".jpg"))
                 {
                     imageList.Images.Add(Image.FromFile(fileOn));
-                    DictImage.Add(i, file.Name);
+                    Icons.Add(i, file.Name);
                     i++;
 				}
             }
@@ -58,14 +55,13 @@ namespace PluginInterface
 
         public void ClosePlugins()
 		{
-			foreach (M_AvailablePlugin pluginOn in colAvailablePlugins)
+			foreach (AvailablePlugin pluginOn in colAvailablePlugins)
 			{
                 pluginOn.Instance.Dispose();
 
 				pluginOn.Instance = null;
 			}
-
-			colAvailablePlugins.Clear();
+            colAvailablePlugins.Clear();
 		}
 
 		private void AddPlugin(string FileName)
@@ -82,7 +78,7 @@ namespace PluginInterface
 
 						if (typeInterface != null)
 						{
-							M_AvailablePlugin newPlugin = new M_AvailablePlugin();
+							AvailablePlugin newPlugin = new AvailablePlugin();
 
 							newPlugin.AssemblyPath = FileName;
 
@@ -94,14 +90,11 @@ namespace PluginInterface
 
 							newPlugin = null;
 						}
-
-						typeInterface = null; 		
+                        typeInterface = null; 		
 					}
 				}
 			}
-
-			pluginAssembly = null;
+            pluginAssembly = null;
 		}
-
     }
 }

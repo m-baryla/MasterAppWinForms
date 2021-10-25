@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Configuration;
-using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Windows.Forms;
 using MasterAppWinForms.ConfigElements;
 using MasterAppWinForms.HandlingPlugin;
@@ -30,15 +25,15 @@ namespace MasterAppWinForms.Forms
         private  void MainForm_Load(object sender, EventArgs e)
         {
             Global.Plugins.FindPlugins(Application.StartupPath + @"\Plugins");
-            var img = Global.Plugins.FindIco(Application.StartupPath + @"\Icons");
-            var imgKey = Global.Plugins.DictImage;
+            var img = Global.Plugins.FindIcons(Application.StartupPath + @"\Icons");
+            var imgKey = Global.Plugins.Icons;
             var selection = (PluginConfigSection)ConfigurationManager.GetSection("Plugins");
 
             if (selection != null)
             {
                 foreach (PluginElement pluginItem in selection.PluginItems)
                 {
-                    foreach (M_AvailablePlugin pluginOn in Global.Plugins.AvailablePlugins)
+                    foreach (AvailablePlugin pluginOn in Global.Plugins.AvailablePlugins)
                     {
                         TreeNode newNode = new TreeNode(pluginOn.Instance.Name);
 
@@ -92,7 +87,7 @@ namespace MasterAppWinForms.Forms
 
             if (this.mainTreeView.SelectedNode != null)
             {
-                M_AvailablePlugin selectedPlugin = Global.Plugins.AvailablePlugins.Find(mainTreeView.SelectedNode.Text.ToString());
+                AvailablePlugin selectedPlugin = Global.Plugins.AvailablePlugins.Find(mainTreeView.SelectedNode.Text.ToString());
 
                 if (selectedPlugin != null)
                 {

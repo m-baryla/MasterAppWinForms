@@ -45,10 +45,10 @@
   <ItemGroup>
     <Compile Include="CustomPaintBackgound.cs" />
     <Compile Include="IPlugin.cs" />
-    <Compile Include="M_AvailablePlugin.cs" />
+    <Compile Include="AvailablePlugin.cs" />
     <Compile Include="PluginServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VM_AvailablePlugins.cs" />
+    <Compile Include="AvailablePlugins.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

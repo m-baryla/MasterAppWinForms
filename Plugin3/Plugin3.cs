@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using PluginInterface;
 
 namespace Plugin3
@@ -12,13 +11,13 @@ namespace Plugin3
             // TODO: Add constructor logic here
             //
         }
-        private string myName = "Plugin3";
-        private string myDescription = "333333333333333333333333333";
-        private string myAuthor = "333333333333333333333";
-        private string myVersion = "1.0.0";
-        private UserControl myMainInterface = new UserControl1();
-        private int? myTreeSubNumber = 0;
-        private bool myIsSubTree = true;
+        private readonly string myName = "Plugin3";
+        private readonly string myDescription = "333333333333333333333333333";
+        private readonly string myAuthor = "333333333333333333333";
+        private readonly string myVersion = "1.0.0";
+        private readonly UserControl myMainInterface = new UserControl1();
+        private readonly int? myTreeSubNumber = 0;
+        private readonly bool myIsSubTree = true;
 
 
         public bool IsSubTree

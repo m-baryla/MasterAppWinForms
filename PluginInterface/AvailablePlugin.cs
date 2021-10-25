@@ -1,8 +1,6 @@
-﻿using PluginInterface;
-
-namespace PluginInterface
+﻿namespace PluginInterface
 {
-	public class M_AvailablePlugin
+	public class AvailablePlugin
     {
         private IPlugin myInstance = null;
         private string myAssemblyPath = "";
