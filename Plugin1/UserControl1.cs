@@ -10,12 +10,12 @@ namespace Plugin1
             InitializeComponent();
         }
 
-        IPlugin myPlugin = null;
+        IPlugin _myPlugin = null;
 
         public IPlugin Plugin
         {
-            get { return myPlugin; }
-            set { myPlugin = value; }
+            get { return _myPlugin; }
+            set { _myPlugin = value; }
         }
     }
 }

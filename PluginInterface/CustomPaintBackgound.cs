@@ -17,10 +17,10 @@ namespace PluginInterface
 			
 			System.Drawing.Color color = panel.BackColor; ;
 
-			Color[] ColorArray = null;
-			float[] PositionArray = null;
+			Color[] colorArray = null;
+			float[] positionArray = null;
 			
-			ColorArray = new Color[]{
+			colorArray = new Color[]{
 									 Blend(panel.BackColor,System.Drawing.Color.White,60),
 									 Blend(panel.BackColor,System.Drawing.Color.White,30),
 									 Blend(panel.BackColor,System.Drawing.Color.Black,0),
@@ -28,11 +28,11 @@ namespace PluginInterface
 									 Blend(panel.BackColor,System.Drawing.Color.White,30),
 									 Blend(panel.BackColor,System.Drawing.Color.White,60),
 				};
-			PositionArray = new float[] { 0.0f, .05f, .40f, .60f, .95f, 1.0f };
+			positionArray = new float[] { 0.0f, .05f, .40f, .60f, .95f, 1.0f };
 	
 			System.Drawing.Drawing2D.ColorBlend blend = new System.Drawing.Drawing2D.ColorBlend();
-			blend.Colors = ColorArray;
-			blend.Positions = PositionArray;
+			blend.Colors = colorArray;
+			blend.Positions = positionArray;
 		
 			System.Drawing.Drawing2D.LinearGradientBrush brush = new System.Drawing.Drawing2D.LinearGradientBrush(rect, panel.BackColor, Blend(panel.BackColor, panel.BackColor, 10), linearGradientMode);
 			brush.InterpolationColors = blend;
@@ -96,11 +96,11 @@ namespace PluginInterface
 		//	brush.Dispose();
 		//}
 
-		private static Color Blend(Color SColor, Color DColor, int Percentage)
+		private static Color Blend(Color sColor, Color dColor, int percentage)
 		{
-			int r = SColor.R + ((DColor.R - SColor.R) * Percentage) / 100;
-			int g = SColor.G + ((DColor.G - SColor.G) * Percentage) / 100;
-			int b = SColor.B + ((DColor.B - SColor.B) * Percentage) / 100;
+			int r = sColor.R + ((dColor.R - sColor.R) * percentage) / 100;
+			int g = sColor.G + ((dColor.G - sColor.G) * percentage) / 100;
+			int b = sColor.B + ((dColor.B - sColor.B) * percentage) / 100;
 			return Color.FromArgb(r, g, b);
 		}
 	}

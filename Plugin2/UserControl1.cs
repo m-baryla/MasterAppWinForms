@@ -11,13 +11,13 @@ namespace Plugin2
             InitializeComponent();
         }
 
-        IPlugin myPlugin = null;
+        IPlugin _myPlugin = null;
 
        
         public IPlugin Plugin
         {
-            get { return myPlugin; }
-            set { myPlugin = value; }
+            get { return _myPlugin; }
+            set { _myPlugin = value; }
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -11,20 +12,20 @@ namespace PluginInterface
 	{
         public PluginServices() {}
 
-		private AvailablePlugins colAvailablePlugins = new AvailablePlugins();
-        public Dictionary<int, string> Icons = new Dictionary<int, string>(); 
+		private AvailablePlugins _colAvailablePlugins = new AvailablePlugins();
+        public Dictionary<int, string> IconsNameList = new Dictionary<int, string>(); 
 
 		public AvailablePlugins AvailablePlugins
 		{
-			get { return colAvailablePlugins; }
-			set { colAvailablePlugins = value; }
+			get { return _colAvailablePlugins; }
+			set { _colAvailablePlugins = value; }
 		}
 
-        public void FindPlugins(string Path)
+        public void FindPlugins(string path)
 		{
-			colAvailablePlugins.Clear();
+			_colAvailablePlugins.Clear();
 
-			foreach (string fileOn in Directory.GetFiles(Path))
+			foreach (string fileOn in Directory.GetFiles(path))
 			{
 				FileInfo file = new FileInfo(fileOn);
 
@@ -35,18 +36,18 @@ namespace PluginInterface
 			}
 		}
 
-        public ImageList FindIcons(string Path)
+        public ImageList FindIcons(string path)
         {
             ImageList imageList = new ImageList();
             int i = 0;
-			foreach (string fileOn in Directory.GetFiles(Path))
+			foreach (string fileOn in Directory.GetFiles(path))
             {
                 FileInfo file = new FileInfo(fileOn);
 
                 if (file.Extension.Equals(".jpg"))
                 {
                     imageList.Images.Add(Image.FromFile(fileOn));
-                    Icons.Add(i, file.Name);
+                    IconsNameList.Add(i, file.Name);
                     i++;
 				}
             }
@@ -55,18 +56,18 @@ namespace PluginInterface
 
         public void ClosePlugins()
 		{
-			foreach (AvailablePlugin pluginOn in colAvailablePlugins)
+			foreach (AvailablePlugin pluginOn in _colAvailablePlugins)
 			{
                 pluginOn.Instance.Dispose();
 
 				pluginOn.Instance = null;
 			}
-            colAvailablePlugins.Clear();
+            _colAvailablePlugins.Clear();
 		}
 
-		private void AddPlugin(string FileName)
+		private void AddPlugin(string fileName)
 		{
-			Assembly pluginAssembly = Assembly.LoadFrom(FileName);
+			Assembly pluginAssembly = Assembly.LoadFrom(fileName);
 
 			foreach (Type pluginType in pluginAssembly.GetTypes())
 			{
@@ -80,13 +81,13 @@ namespace PluginInterface
 						{
 							AvailablePlugin newPlugin = new AvailablePlugin();
 
-							newPlugin.AssemblyPath = FileName;
+							newPlugin.AssemblyPath = fileName;
 
 							newPlugin.Instance = (IPlugin)Activator.CreateInstance(pluginAssembly.GetType(pluginType.ToString()));
 
 							newPlugin.Instance.Initialize();
 
-							this.colAvailablePlugins.Add(newPlugin);
+							this._colAvailablePlugins.Add(newPlugin);
 
 							newPlugin = null;
 						}

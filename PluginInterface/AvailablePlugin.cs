@@ -2,18 +2,18 @@
 {
 	public class AvailablePlugin
     {
-        private IPlugin myInstance = null;
-        private string myAssemblyPath = "";
+        private IPlugin _myInstance = null;
+        private string _myAssemblyPath = "";
 
         public IPlugin Instance
         {
-            get { return myInstance; }
-            set { myInstance = value; }
+            get { return _myInstance; }
+            set { _myInstance = value; }
         }
         public string AssemblyPath
         {
-            get { return myAssemblyPath; }
-            set { myAssemblyPath = value; }
+            get { return _myAssemblyPath; }
+            set { _myAssemblyPath = value; }
         }
     }
 }

@@ -10,6 +10,8 @@ namespace MasterAppWinForms.Forms
 {
     public partial class MainForm : Form
     {
+        private LoaderPlugin _loaderPlugin;
+
         public MainForm()
         {
             InitializeComponent();
@@ -24,112 +26,22 @@ namespace MasterAppWinForms.Forms
 
         private  void MainForm_Load(object sender, EventArgs e)
         {
-            Global.Plugins.FindPlugins(Application.StartupPath + @"\Plugins");
-            var img = Global.Plugins.FindIcons(Application.StartupPath + @"\Icons");
-            var imgKey = Global.Plugins.Icons;
-            var selection = (PluginConfigSection)ConfigurationManager.GetSection("Plugins");
+            
+            Global.Plugins.FindPlugins(Config.GetDllPath());
+            var imageList = Global.Plugins.FindIcons(Config.GetIconsPath());
 
-            if (selection != null)
-            {
-                foreach (PluginElement pluginItem in selection.PluginItems)
-                {
-                    foreach (AvailablePlugin pluginOn in Global.Plugins.AvailablePlugins)
-                    {
-                        TreeNode newNode = new TreeNode(pluginOn.Instance.Name);
-
-                        var indexSelect = imgKey.Where(o => o.Value == pluginItem.IcoName).Select(x => x.Key).SingleOrDefault();
-
-                        if (pluginOn.Instance.Name == pluginItem.PluginName && pluginOn.Instance.IsSubTree == false)
-                        {
-                            var index = imgKey.Where(o => o.Value == pluginItem.IcoName).Select(x => x.Key).SingleOrDefault();
-                            this.mainTreeView.Nodes.Add(pluginOn.Instance.Name, newNode.Text, index, indexSelect);
-                        }
-                        else if (pluginOn.Instance.Name == pluginItem.PluginName && pluginOn.Instance.IsSubTree == true)
-                        {
-                            var index = imgKey.Where(o => o.Value == pluginItem.IcoName).Select(x => x.Key).SingleOrDefault();
-                            this.mainTreeView.Nodes[pluginOn.Instance.TreeSubNumber].Nodes.Add(pluginOn.Instance.Name, newNode.Text, index, indexSelect);
-                        }
-                        
-                        newNode = null;
-                    }
-                }
-            }
-
-            this.mainTreeView.ImageList = img;
+            this._loaderPlugin = new LoaderPlugin(this.mainTreeView);
+            this._loaderPlugin.LoadPlugin();
+            
+            this.mainTreeView.ImageList = imageList;
         }
 
         private void mainTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            //TreeNode sectedNode = treeView1.SelectedNode;
-            //switch (sectedNode.Text)
-            //{
-            //    case "Plugin1":
-            //        {
-            //            MessageBox.Show("Plugin1");
-            //        }
-            //        break;
-            //    case "Plugin2":
-            //        {
-            //            MessageBox.Show("Plugin1");
-            //        }
-            //        break;
-            //    case "Plugin3":
-            //        {
-            //            MessageBox.Show("Plugin1");
-            //        }
-            //        break;
-            //    case "Plugin4":
-            //        {
-            //            MessageBox.Show("Plugin1");
-            //        }
-            //        break;
-            //}
-
-            if (this.mainTreeView.SelectedNode != null)
-            {
-                AvailablePlugin selectedPlugin = Global.Plugins.AvailablePlugins.Find(mainTreeView.SelectedNode.Text.ToString());
-
-                if (selectedPlugin != null)
-                {
-                    this.lblPluginInfo.Text = "Name: " + selectedPlugin.Instance.Name + " " +
-                                              " Version: ( " + selectedPlugin.Instance.Version + " ) ";
-                    this.lblPluginInfoAuthor.Text = "By:  " + selectedPlugin.Instance.Author;
-                    this.lblPluginDesc.Text = selectedPlugin.Instance.Description;
-
-                    this.showPanel.Controls.Clear();
-                    selectedPlugin.Instance.MainInterface.Dock = DockStyle.Fill;
-                    this.showPanel.Controls.Add(selectedPlugin.Instance.MainInterface);
-                }
-            }
+            this._loaderPlugin.SelectorPlugin(this.mainTreeView,this.showPanel,this.labelPluginInfo);
         }
     }
 }
 
 
 
-//// main tree
-//if (pluginOn.Instance.Name == "Plugin1")
-//{
-//    var index = imgKey.Where(o => o.Value == pluginOn.Instance.Name + ".jpg").Select(x => x.Key).SingleOrDefault();
-//    this.mainTreeView.Nodes.Add(pluginOn.Instance.Name, newNode.Text, index, indexSelect);
-//}
-//else if (pluginOn.Instance.Name == "Plugin2")
-//{
-//    var index = imgKey.Where(o => o.Value == pluginOn.Instance.Name + ".jpg").Select(x => x.Key).SingleOrDefault();
-//    this.mainTreeView.Nodes.Add(pluginOn.Instance.Name, newNode.Text, index, indexSelect);
-//}
-//// sub-main tree
-//else
-//{
-//    if (pluginOn.Instance.Name == "Plugin3")
-//    {
-//        var index = imgKey.Where(o => o.Value == pluginOn.Instance.Name + ".jpg").Select(x => x.Key).SingleOrDefault();
-//        this.mainTreeView.Nodes[pluginOn.Instance.TreeSubNumber].Nodes.Add(pluginOn.Instance.Name, newNode.Text, index, indexSelect);
-//    }
-//    else if (pluginOn.Instance.Name == "Plugin4")
-//    {
-//        var index = imgKey.Where(o => o.Value == pluginOn.Instance.Name + ".jpg").Select(x => x.Key).SingleOrDefault();
-//        this.mainTreeView.Nodes[pluginOn.Instance.TreeSubNumber].Nodes.Add(pluginOn.Instance.Name, newNode.Text, index, indexSelect);
-//    }
-//}
-//newNode = null;

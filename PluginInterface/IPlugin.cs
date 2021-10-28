@@ -10,7 +10,8 @@ namespace PluginInterface
         string Version { get; }
         int TreeSubNumber { get; }
         bool IsSubTree { get; }
-        UserControl MainInterface { get; }
+        UserControl MainInterfaceUserControl { get; }
+        Form MainInterfaceForms { get; }
         void Initialize();
         void Dispose();
     }

@@ -11,43 +11,40 @@ namespace Plugin3
             // TODO: Add constructor logic here
             //
         }
-        private readonly string myName = "Plugin3";
-        private readonly string myDescription = "333333333333333333333333333";
-        private readonly string myAuthor = "333333333333333333333";
-        private readonly string myVersion = "1.0.0";
-        private readonly UserControl myMainInterface = new UserControl1();
-        private readonly int? myTreeSubNumber = 0;
-        private readonly bool myIsSubTree = true;
+        private readonly string _myName = "Plugin3";
+        private readonly string _myDescription = "333333333333333333333333333";
+        private readonly string _myAuthor = "333333333333333333333";
+        private readonly string _myVersion = "1.0.0";
+        private readonly int? _myTreeSubNumber = 0;
+        private readonly bool _myIsSubTree = true;
 
 
         public bool IsSubTree
         {
-            get { return myIsSubTree; }
+            get { return _myIsSubTree; }
         }
         public string Description
         {
-            get { return myDescription; }
+            get { return _myDescription; }
         }
         public string Author
         {
-            get { return myAuthor; }
+            get { return _myAuthor; }
         }
         public string Name
         {
-            get { return myName; }
-        }
-        public UserControl MainInterface
-        {
-            get { return myMainInterface; }
+            get { return _myName; }
         }
         public string Version
         {
-            get { return myVersion; }
+            get { return _myVersion; }
         }
         public int TreeSubNumber
         {
-            get { return (int)myTreeSubNumber; }
+            get { return (int)_myTreeSubNumber; }
         }
+        public Form MainInterfaceForms => null;
+        public UserControl MainInterfaceUserControl => new UserControl1();
         public void Initialize()
         {
 
